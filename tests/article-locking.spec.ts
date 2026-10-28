@@ -13,7 +13,10 @@ test("co-author can edit and lock blocks another editor", async ({ browser, page
   await page.goto("/articles/new");
   await page.getByLabel("Title").fill("Playwright shared article");
   await page.getByLabel("Body").fill("Initial body");
-  await page.getByText("John").click();
+  await page.getByLabel("Co-Authors").click();
+  await page.getByRole("listbox").getByText("John", { exact: true }).click();
+  await expect(page.getByLabel("Co-Authors")).toContainText("John");
+  await page.keyboard.press("Escape");
   await page.getByRole("button", { name: "Save article" }).click();
   await expect(page).toHaveURL(/\/articles\/(?!new$)[^/]+$/);
 

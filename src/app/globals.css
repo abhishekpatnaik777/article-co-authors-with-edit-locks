@@ -187,14 +187,71 @@ textarea {
 }
 
 .multi-select {
+  position: relative;
+}
+
+.multi-select-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.75rem;
+  background: white;
+  text-align: left;
+  cursor: pointer;
+}
+
+.multi-select-trigger:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.multi-select-placeholder {
+  color: var(--muted);
+}
+
+.multi-select-summary {
+  color: var(--foreground);
+}
+
+.multi-select-chevron {
+  color: var(--muted);
+  line-height: 1;
+}
+
+.multi-select-panel {
+  position: absolute;
+  z-index: 20;
+  top: calc(100% + 0.35rem);
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0.5rem;
+  list-style: none;
   display: grid;
-  gap: 0.5rem;
+  gap: 0.25rem;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: white;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  max-height: 14rem;
+  overflow: auto;
 }
 
 .multi-select-option {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  padding: 0.4rem 0.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.multi-select-option:hover {
+  background: #f3f4f6;
 }
 
 .auth-page {

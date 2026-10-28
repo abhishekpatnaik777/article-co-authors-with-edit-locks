@@ -101,12 +101,13 @@ export function ArticleForm({ mode, articleId, defaultValues, users, lockState, 
         {form.formState.errors.body ? <p className="error-text">{form.formState.errors.body.message}</p> : null}
       </div>
       <div className="field">
-        <label>Co-Authors</label>
+        <label htmlFor="co-authors">Co-Authors</label>
         <Controller
           control={form.control}
           name="coAuthorIds"
           render={({ field }) => (
             <MultiSelect
+              id="co-authors"
               options={options}
               value={field.value ?? []}
               onChange={field.onChange}
